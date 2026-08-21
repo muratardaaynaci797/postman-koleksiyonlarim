@@ -1,0 +1,841 @@
+{
+  "info": {
+    "_postman_id": "3ecee4a2-1ffc-493d-9e9a-0cd1cf641085",
+    "name": "dummyjson",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57273853",
+    "_collection_link": "https://go.postman.co/collection/57273853-3ecee4a2-1ffc-493d-9e9a-0cd1cf641085?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "cookieSet",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"cookie set edildi\"), () =>{\r",
+              "    pm.expect(pm.cookies.has(\"cookies\")).to.be.true;\r",
+              "}\r",
+              "\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://httpbun.com/cookies/set?cookies=2004",
+          "protocol": "https",
+          "host": [
+            "httpbun",
+            "com"
+          ],
+          "path": [
+            "cookies",
+            "set"
+          ],
+          "query": [
+            {
+              "key": "cookies",
+              "value": "2004"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ContractTest",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Şema doğru\", () => {\r",
+              "    const json = pm.response.json();\r",
+              "    pm.expect(json).to.have.property(\"headers\");\r",
+              "    pm.expect(json).to.have.property(\"origin\");\r",
+              "    pm.expect(json.headers).to.be.an(\"object\");\r",
+              "    pm.expect(json.headers).to.be.property(\"Host\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://httpbun.com/get",
+          "protocol": "https",
+          "host": [
+            "httpbun",
+            "com"
+          ],
+          "path": [
+            "get"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Status429",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"429 too many request döndü\",() => {\r",
+              "pm.response.to.have.status(429);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://httpbun.com/status/429",
+          "protocol": "https",
+          "host": [
+            "httpbun",
+            "com"
+          ],
+          "path": [
+            "status",
+            "429"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "deleteCookie",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Check if cookies are deleted\", function () {\r",
+              "    pm.expect(pm.response.json().cookies.cookies).to.not.exist;\r",
+              "    });"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://httpbun.com/cookies/delete?cookies=2004",
+          "protocol": "https",
+          "host": [
+            "httpbun",
+            "com"
+          ],
+          "path": [
+            "cookies",
+            "delete"
+          ],
+          "query": [
+            {
+              "key": "cookies",
+              "value": "2004"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getResponse",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "",
+            "value": "",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://httpbun.com/get",
+          "protocol": "https",
+          "host": [
+            "httpbun",
+            "com"
+          ],
+          "path": [
+            "get"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "createUser",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status kodu 200 mü\", () => {\r",
+              "   pm.response.to.have.status(200);\r",
+              "});\r",
+              "pm.test(\"Response süresi 500ms altında mı\", () => {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+              "});\r",
+              "pm.test(\"Response body'de 'isim' değeri 'Ahmet' mi\", () => {\r",
+              "const json = pm.response.json();\r",
+              "pm.expect(json.json.isim).to.eql(\"Ahmet\");\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"isim\": \"Ahmet\",\r\n  \"yas\": 25,\r\n  \"sehir\": \"Istanbul\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://httpbun.com/post",
+          "protocol": "https",
+          "host": [
+            "httpbun",
+            "com"
+          ],
+          "path": [
+            "post"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "HeaderKontrolü",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Content-Type header var mı\", () =>{\r",
+              "    pm.response.to.have.header(\"Content-Type\");\r",
+              "});\r",
+              "pm.test(\"Content-Type application/json mı\",() =>{\r",
+              "    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\")\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://httpbun.com/post",
+          "protocol": "https",
+          "host": [
+            "httpbun",
+            "com"
+          ],
+          "path": [
+            "post"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "nullDeğerKontrolü",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"origin alanı boş değil\",() =>{\r",
+              "    const json = pm.response.json();\r",
+              "    pm.expect(json.origin).to.not.be.empty;\r",
+              "    pm.expect(json.origin).to.not.be.null;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"url alanı doğru geldi\",() => {\r",
+              "    const json = pm.response.json();\r",
+              "    pm.expect(json.url).to.equal(\"https://httpbun.com/post\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://httpbun.com/post",
+          "protocol": "https",
+          "host": [
+            "httpbun",
+            "com"
+          ],
+          "path": [
+            "post"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "nestedObjectKontrolü",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"headers nested objesi doğru\",() => {\r",
+              "    const json = pm.response.json();   \r",
+              "    pm.expect(json.headers).to.be.an(\"object\");\r",
+              "    pm.expect(json.headers).to.have.property(\"Host\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"headers içindeki Host değeri doğru\", () =>{\r",
+              "    const json =pm.response.json()\r",
+              "    pm.expect(json.headers.Host).to.equal(\"httpbun.com\")\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "https://httpbun.com/post",
+          "protocol": "https",
+          "host": [
+            "httpbun",
+            "com"
+          ],
+          "path": [
+            "post"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "404NotFound",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"404 döndü\", () =>{\r",
+              "    pm.response.to.have.status(404);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Hata Mesaj içeriyor\",() =>{\r",
+              "    const json = pm.response.json();\r",
+              "    pm.expect(json).to.have.property(\"message\");\r",
+              "    pm.expect(json.message).to.not.be.empty;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Mesaj doğru\", () => {\r",
+              "    pm.expect(pm.response.json().message).to.eql(\"Product with id '99999' not found\");\r",
+              "});\r",
+              "\r",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://dummyjson.com/products/99999",
+          "protocol": "https",
+          "host": [
+            "dummyjson",
+            "com"
+          ],
+          "path": [
+            "products",
+            "99999"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "maskelemeKontrolü",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"şifre alanı response'da düz metin olarak gösterilmemeli\",() =>{\r",
+              "    const json= pm.response.json();\r",
+              "    pm.expect(json).to.not.have.property(\"password\");\r",
+              "});\r",
+              "pm.test(\"email alanı response'da düz metin olarak gösterilmeli\", () => {\r",
+              "    const json = pm.response.json();\r",
+              "    pm.expect(json.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://dummyjson.com/users/1",
+          "protocol": "https",
+          "host": [
+            "dummyjson",
+            "com"
+          ],
+          "path": [
+            "users",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Idempotency(tekrarÇalıştırma)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"gönderdiğim veri aynen döndü\",() =>{\r",
+              "    const json = pm.response.json()\r",
+              "    pm.expect(json.json.ürünAdı).to.eql(\"kalem\");\r",
+              "    pm.expect(json.json.fiyat).to.eql(10);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"ürünAdı\":\"kalem\",\r\n    \"fiyat\":10\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://httpbun.com/put",
+          "protocol": "https",
+          "host": [
+            "httpbun",
+            "com"
+          ],
+          "path": [
+            "put"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CacheControlveSet-Cookie",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Cache-Control header mevcut\",() =>{\r",
+              "    pm.response.to.have.header(\"Cache-Control\");\r",
+              "});\r",
+              "pm.test(\"Cache-Control header değeri doğru\", () => {\r",
+              "    pm.expect(pm.response.headers.get(\"Cache-Control\")).to.eql(\"no-store\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Set-Cookie header mevcut\", () => {\r",
+              "    pm.response.to.have.header(\"Set-Cookie\");\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Cookie boş dönmüyor\",() => {\r",
+              "    pm.expect(pm.response.headers.get(\"Set-Cookie\")).to.not.be.empty;\r",
+              "}); "
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://httpbun.com/response-headers?Cache-Control=no-store&Set-Cookie=test=123",
+          "protocol": "https",
+          "host": [
+            "httpbun",
+            "com"
+          ],
+          "path": [
+            "response-headers"
+          ],
+          "query": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            },
+            {
+              "key": "Set-Cookie",
+              "value": "test=123"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Authentication(KimlikDoğrulama)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"login başarılı\",() => {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"token döndü\",() => {\r",
+              "    const json=pm.response.json();\r",
+              "    pm.expect(json.accessToken).to.exist;\r",
+              "    pm.collectionVariables.set(\"token\", json.accessToken);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"username\":\"emilys\",\r\n    \"password\":\"emilyspass\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://dummyjson.com/auth/login",
+          "protocol": "https",
+          "host": [
+            "dummyjson",
+            "com"
+          ],
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Authorization(Yetkilendirme)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Token ile giriş yapılan kullanıcı bilgisi geldi\",() =>{\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"kullanıcı adı doğru\",() =>{\r",
+              "    const json = pm.response.json();\r",
+              "    pm.expect(json.firstName).to.eql(\"Emily\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://dummyjson.com/auth/me",
+          "protocol": "https",
+          "host": [
+            "dummyjson",
+            "com"
+          ],
+          "path": [
+            "auth",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GüvenlikHeadersKontrolü",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"CORS header (Access-Control-Allow-Origin var mı\",() =>{\r",
+              "    pm.expect(pm.response.headers.has(\"Access-Control-Allow-Origin\")).to.be.true;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"X-Frame-Options var mı\",() =>{\r",
+              "    pm.expect(pm.response.headers.has(\"X-Frame-Options\")).to.be.true;\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Content-Security-Policy var mı\",() =>{\r",
+              "    pm.expect(pm.response.headers.has(\"Content-Security-Policy\")).to.be.true;\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://dummyjson.com/products",
+          "protocol": "https",
+          "host": [
+            "dummyjson",
+            "com"
+          ],
+          "path": [
+            "products"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}
